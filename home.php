@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="en" dir="ltr" style="font-family:Arial">
 
   <link rel="stylesheet" href="style.css">
   <meta charset="utf-8">
-  <head style="font-family:Arial">
+  <head>
 
     <title>Main Menu</title>
 
@@ -11,11 +11,13 @@
   <body style="font-family:Arial">
 
     <div class="topnav">
-      <a class="active" href="#home">Home</a>
-      <a href="#contact">Contact</a>
-      <a href="login.php">User login</a>
-      <a href="register.php">New Account</a>
+      <b href="youFoundUs.html">PLACEHOLDER</b>
+      
       <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="register.php">New Account</a>
+      <a href="login.php">User login</a>
+      <a class="active" href="#home">Home</a>
     </div>
 
   </body>
