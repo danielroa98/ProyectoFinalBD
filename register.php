@@ -1,8 +1,8 @@
 <!DOCTYPE HTML>
 
-  <link rel="stylesheet" href="style.css" style="font-family:Arial">
-  <meta charset="utf-8">
-<html>
+<link rel="stylesheet" href="style.css">  
+<meta charset="utf-8">
+<html style="font-family:Arial">
 <head>
 <title>New User</title>
 </head>
@@ -19,33 +19,51 @@
 <h1>Registration</h1>
 <p>Please insert the following information</p>
 
-    <form name = "nombre_form" action = "conexion.php" method = "post">
-        <h4>Nomina</h4>
-        <input type="text" name="nomina"></input>
-        <h4>Nombre</h4>
-        <input type="text" name="nombre"></input>
-        <h4>Puesto</h4>
-        <input type="text" name="puesto"></input>
-        <h4>Horario</h4>
-        <input type="text" name="horario"></input>
-        <h4>Salario</h4>
-        <input type="text" name="salario"></input>
-        <h4>Sucursal</h4>
-        <input type="text" name="sucursal"></input>
+<?php
+    error_reporting(E_ALL);         //USADO PARA DEBUGEAR
+    ini_set('display_errors', 1);
 
-        <input type ="submit" name="Envia" value="Enviar Lolis"></input>
+    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "TiendaVirtual");
+    //if ($enlace)
+      //echo "Conexión exitosa. <br>";
+    //else
+      //die("Conexión no exitosa.");
+    ?>
+
+    <form name = "nombre_form" action = "conexion.php" method = "post">
+
+        <h4>Username</h4>
+        <input type="text" name="username"></input>
+
+        <h4>Name and Last Name</h4>
+        <input type="text" name="name"></input>
+
+        <h4>Password</h4>
+        <input type="password" name="password"></input>
+
+        <h4>Re-enter Password</h4>
+        <input type="password" name="passwordVER"></input>
+
+        <h4>Email Address</h4>
+        <input type="text" name="email"></input>
+
+        <input type ="submit" name="accept" value="Aceptar"></input>
 
     </form>
 
 
 <?php
-// Show all information, defaults to INFO_ALL
-//phpinfo();
 
-// Show just the module information.
-// phpinfo(8) yields identical results.
-//phpinfo(INFO_MODULES);
+/*
+$password;
+$passwordVER;
 
+if($password == $passwordVER){
+
+  echo "SUCCESS!!. <br>";
+
+}
+*/
 ?>
 </body>
 </html>
