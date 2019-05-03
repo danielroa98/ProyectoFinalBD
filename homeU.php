@@ -13,8 +13,8 @@
     <div class="topnav">
       <a class="active" href="#home">Home</a>
       <a href="#contact">Contact</a>
-      <a href="login.php">User login</a>
-      <a href="register.php">New Account</a>
+      <a href="login.php">Who needs to login?</a>
+      <a href="register.php">Debug this bitch!</a>
       <a href="#about">About</a>
     </div>
 
