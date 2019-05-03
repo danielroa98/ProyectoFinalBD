@@ -9,11 +9,13 @@
 <body>
 
   <div class="topnav">
-    <a href="home.php">Home</a>
-    <a href="#contact">Contact</a>
-    <a href="login.php">User login</a>
-    <a class="active" href="register.php">New Account</a>
-    <a href="#about">About</a>
+      <b href="youFoundUs.html">PLACEHOLDER</b>
+
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a class="active" href="register.php">New Account</a>
+      <a href="login.php">User login</a>
+      <a href="home.php">Home</a>
   </div>
 
 <h1>Registration</h1>

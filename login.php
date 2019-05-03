@@ -2,50 +2,36 @@
 
   <link rel="stylesheet" href="style.css">
   <meta charset="utf-8">
-  <?php
-    session_start();
-
-    $username = "user";
-    $password = "passwordDEMO";
-
-    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-      header("Location: session.php");
-    }
-
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-      if ($_POST['username'] == $username && $_POST['password'] == $password) {
-
-        $_SESSION['logged_in'] = true;
-        header("Location: session.php");
-
-      }
-    }
-   ?>
 
 <html lang="en" dir="ltr" style="font-family:Arial">
   <head>
-    <title>User Login</title>
-
+   
+    <header>
     <div class="topnav">
-      <a href="home.php">Home</a>
-      <a href="#contact">Contact</a>
-      <a class="active" href="login.php">User login</a>
-      <a href="register.php">New Account</a>
+      <b href="youFoundUs.html">PLACEHOLDER</b>
+      
       <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+      <a href="register.php">New Account</a>
+      <a class="active" href="login.php">User login</a>
+      <a href="home.php">Home</a>
     </div>
+
+    </header>
 
   </head>
   <body>
 
-    <form action="index.php" method="post">
+    <form name="login_form" action="loginF.php" method="post">
 
-        Username:<br/>
-        <input type="text" name="username"><br/>
+        <h4>Username:</h4>
+        <input type="text" name="username"></input>
 
-        Password:<br/>
-        <input type="password" name="password"><br/>
+        <h4>Password:</h4>
+        <input type="password" name="password"></input>
           <br/>
-        <input type="submit" name="" value="Login">
+          <br>
+        <input type="submit" name="login" value="Login">
     </form>
 
   </body>

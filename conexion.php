@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Conexión a base de datos</title>
+  <title>New User</title>
 </head>
 
 <body>

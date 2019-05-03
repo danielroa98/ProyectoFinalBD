@@ -4,19 +4,7 @@
     <meta charset="utf-8">
 
     <html lang="sp" dir="ltr" style="font-family:Arial">
-        <head>
-            <title>User Login</title>
-
-            <div class="topnav">
-            <b href="youFoundUs.html">PLACEHOLDER</b>
-      
-            <a href="#about">About</a>
-            <a href="#contact">Contact</a>
-            <a href="register.php">New Account</a>
-            <a href="login.php">User login</a>
-            <a class="active" href="#home">Home</a>
-            </div>
-        </head>
+        <title>User Login</title>
     
         <body>
         <?php
@@ -36,9 +24,9 @@
             $username = $_POST['username'];
             $password = $_POST['password'];
 
-    if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-      header("Location: homeU.php");
-    }
+         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
+            header("Location: homeU.php");
+            }
 
     if (isset($_POST['username']) && isset($_POST['password'])) {
       if ($_POST['username'] == $username && $_POST['password'] == $password) {
