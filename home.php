@@ -13,7 +13,7 @@
     error_reporting(E_ALL);         //USADO PARA DEBUGEAR
     ini_set('display_errors', 1);
 
-    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "TiendaVirtual");
+    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
 
     //if ($enlace)
       //echo "Conexión exitosa. <br>";
