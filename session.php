@@ -23,7 +23,7 @@
 
             //$nombre = $_POST['nombre'];
 
-            $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "TiendaVirtual");
+            $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
 
             if ($enlace)
                 echo "Conexión exitosa. <br>";

@@ -11,7 +11,7 @@
 
             //$nombre = $_POST['nombre'];
 
-            $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "TiendaVirtual");
+            $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
 
             if ($enlace)
                 echo "Conexión exitosa. <br>";
@@ -19,23 +19,42 @@
             else
                 die("Conexión no exitosa.");
 
-            session_start();
+            //$result_query = mysqli_query($enlace, "SELECT * FROM gamestore.users WHERE Username = '".$_POST["username"]."' AND Password = '".$_POST["password"]."';");
 
-            $username = $_POST['username'];
-            $password = $_POST['password'];
+            $result_query = mysqli_query($enlace, "SELECT * FROM gamestore.users WHERE Username = '".$_POST["username"]."';");
 
-         if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true) {
-            header("Location: homeU.php");
-            }
+            //valor de hash = $hash
 
-    if (isset($_POST['username']) && isset($_POST['password'])) {
-      if ($_POST['username'] == $username && $_POST['password'] == $password) {
+            if ($result_query) {
 
-        $_SESSION['logged_in'] = true;
-        header("Location: session.php");
+             while($row = mysqli_fetch_array($result_query)) {
 
-      }
-    }
+                $username = $row["Username"]; 
+                $passwordHASH = $row["Password"]; 
+
+                $passwordDEHASH = password_verify($_POST["password"], $passwordHASH);
+
+                if ($passwordDEHASH == true) {
+
+                    $tipoUser = $row["UserType"];
+
+                    if($tipoUser == 'admin'){
+                    header("Location: homeA.php");
+                     }
+                     else
+                        header("Location: homeU.php");
+
+                } else {
+                    header("Location: passwordERROR.php");
+                }
+
+            }//fin while
+                }//fin $result_query
+            else {
+                echo "ERROR...USER DOESN'T EXIST";
+             }
+
+            
 
         ?>
         

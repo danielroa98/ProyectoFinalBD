@@ -9,13 +9,12 @@
 <body>
 
   <div class="topnav">
-      <b href="youFoundUs.html">PLACEHOLDER</b>
-
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a class="active" href="register.php">New Account</a>
-      <a href="login.php">User login</a>
+      
+      <a href="cart.php"><img src="Placeholder/shopping-cart.png"></a>
+      <a class="active" href="register.php">Sign up</a>
+      <a href="login.php">Login</a>
       <a href="home.php">Home</a>
+  
   </div>
 
 <h1>Registration</h1>
@@ -25,11 +24,13 @@
     error_reporting(E_ALL);         //USADO PARA DEBUGEAR
     ini_set('display_errors', 1);
 
-    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "TiendaVirtual");
-    //if ($enlace)
-      //echo "Conexión exitosa. <br>";
-    //else
-      //die("Conexión no exitosa.");
+    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
+
+    if ($enlace)
+      echo "Conexión exitosa. <br>";
+    else
+      die("Conexión no exitosa.");
+    
     ?>
 
     <form name = "nombre_form" action = "conexion.php" method = "post">
@@ -37,7 +38,7 @@
         <h4>Username</h4>
         <input type="text" name="username"></input>
 
-        <h4>Name and Last Name</h4>
+        <h4>First Name and Last Name</h4>
         <input type="text" name="name"></input>
 
         <h4>Password</h4>

@@ -8,13 +8,10 @@
    
     <header>
     <div class="topnav">
-      <b href="youFoundUs.html">PLACEHOLDER</b>
-      
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-      <a href="register.php">New Account</a>
-      <a class="active" href="login.php">User login</a>
-      <a href="home.php">Home</a>
+      <a href="cart.php"><img src="Placeholder/shopping-cart.png"></a>
+      <a href="register.php">Sign up</a>
+      <a class="active" href="login.php">Login</a>
+      <a  href="#home">Home</a>
     </div>
 
     </header>

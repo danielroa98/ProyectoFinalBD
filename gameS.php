@@ -8,10 +8,11 @@
     <title>Main Menu</title>
 
     <header>
-    <div class="topnav">   
-      <a href="home.php">Log Out</a>  
-      <a href="cart.php"><img src="Placeholder/shopping-cart.png"></a>
-      <a class="active" href="homeU.php">Home</a>
+    <div class="topnav">
+        <a href="home.php">Log Out</a>
+        <a class="active" href="gameS.php">Game Settings</a>
+        <a href="userS.php">User Settings</a>
+        <a href="homeA.php">Home</a>
     </div>
 
     </header>

@@ -1,17 +1,18 @@
 /* Add a black background color to the top navigation */
 .topnav {
-  background-color: #ebebeb;
+  background-color: #362f32;
   overflow: hidden;
 }
 
 /* Style the links inside the navigation bar */
 .topnav a {
   float: right;
-  color: black; /*CAMBIA EL COLOR DE LETRA*/
+  color: black; /CAMBIA EL COLOR DE LETRA/
   text-align: center;
   padding: 14px 16px;
   text-decoration: none;
   font-size: 17px;
+  color: rgb(219, 216, 210);
 }
 
 .topnav b{
@@ -19,20 +20,21 @@
   align-content: center;
   text-align: center;
   padding: 14px 16px;
-  color: midnightblue;
+ 
   font-family: Arial, Helvetica, sans-serif;
   font-size: 17px;
+  color: rgb(219, 216, 210);
 }
 
 /* Change the color of links on hover */
 .topnav a:hover {
-  background-color: #ddd;
+  background-color: rgb(117, 96, 95);
   color: black;
 }
 
 /* Add a color to the active/current link */
 .topnav a.active {
-  background-color: #5757e0;
+  background-color: rgb(117, 96, 95);
   color: white;
 }
 
@@ -42,9 +44,10 @@
 }
 
 body{
-  background-color: #a3bbe2;
-  /*background-image: Placeholder/colombianPlaceholder.jpg;
-*/}
+  background-image: url("https://images3.alphacoders.com/785/thumb-1920-785576.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
 
 * {box-sizing:border-box}
   
@@ -141,9 +144,9 @@ body{
     to {opacity: 1}
   }
   .row1{
-    border: 1px solid black;
+    border: 1px solid #847c6c;
     margin-right: 50px;
-    margin-left: 50px;
+
   }
   
   
@@ -161,13 +164,14 @@ body{
   .column1 {
     flex: 20%;
     padding: 5px;
+    color: rgb(219, 216, 210);
   }
   
   table.tablebox1{
       height: 100px;
-      width: 256px;
-      border: 5px solid #5757e0;
-      background-color: #ebebeb;
+      width: 220px;
+      border: 5px solid #362f32;
+      background-color: rgb(104, 90, 96,0.5);  
       font-weight: bold;
       font-family: arial;
   }
