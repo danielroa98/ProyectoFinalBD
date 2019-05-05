@@ -66,8 +66,32 @@ CREATE TABLE `creditcard` (
 
 LOCK TABLES `creditcard` WRITE;
 /*!40000 ALTER TABLE `creditcard` DISABLE KEYS */;
-INSERT INTO `creditcard` VALUES ('7890789078907890','7890','08/19','Rodrigo Roa');
+INSERT INTO `creditcard` VALUES ('1234123412341234','1234','10/20','Luis Yepez'),('7890789078907890','7890','08/19','Rodrigo Roa');
 /*!40000 ALTER TABLE `creditcard` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `funds`
+--
+
+DROP TABLE IF EXISTS `funds`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+ SET character_set_client = utf8mb4 ;
+CREATE TABLE `funds` (
+  `CREDITCARD_Number` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
+  `Amount` decimal(6,2) DEFAULT NULL,
+  PRIMARY KEY (`CREDITCARD_Number`),
+  CONSTRAINT `fk_FUNDS_CREDITCARD1` FOREIGN KEY (`CREDITCARD_Number`) REFERENCES `creditcard` (`Number`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `funds`
+--
+
+LOCK TABLES `funds` WRITE;
+/*!40000 ALTER TABLE `funds` DISABLE KEYS */;
+/*!40000 ALTER TABLE `funds` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -82,6 +106,7 @@ CREATE TABLE `games` (
   `Name` mediumtext COLLATE utf8_unicode_ci,
   `Image` tinytext COLLATE utf8_unicode_ci,
   `Description` text COLLATE utf8_unicode_ci,
+  `Genre` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Price` decimal(6,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -93,7 +118,7 @@ CREATE TABLE `games` (
 
 LOCK TABLES `games` WRITE;
 /*!40000 ALTER TABLE `games` DISABLE KEYS */;
-INSERT INTO `games` VALUES ('00000001','Moonlighter','Placeholder/moonlighter.jpg','Moonlighter is an Action RPG with rogue-lite elements that demonstrates two sides of the coin – revealing everyday routines of Will, an adventurous shopkeeper that secretly dreams of becoming a hero.',189.99),('00000002','Metro2033','Placeholder/metro2033.jpg','In 2013 the world was devastated by an apocalyptic event, annihilating almost all mankind and turning the Earth\'s surface into a poisonous wasteland. A handful of survivors took refuge in the depths of the Moscow underground, and human civilization entered a new Dark Age. The year is 2033.',179.99),('00000003','Atelier Sophie: The Alchemist of the Mysterious Book','Placeholder/atelier.jpg','17th in the Atelier series. The budding alchemist Sophie of Kirchen Bell meets the Mysterious Book, Plachta, and embarks on a wonderful adventure of fulfilling dreams.',269.99),('00000004','Doki Doki Literature Club!','Placeholder/doki.jpg','The Literature Club is full of cute girls! Will you write the way into their heart? This game is not suitable for children or those who are easily disturbed.',109.99);
+INSERT INTO `games` VALUES ('00000001','Moonlighter','Placeholder/moonlighter.jpg','Moonlighter is an Action RPG with rogue-lite elements that demonstrates two sides of the coin – revealing everyday routines of Will, an adventurous shopkeeper that secretly dreams of becoming a hero.','RPG',189.99),('00000002','Metro2033','Placeholder/metro2033.jpg','In 2013 the world was devastated by an apocalyptic event, annihilating almost all mankind and turning the Earth\'s surface into a poisonous wasteland. A handful of survivors took refuge in the depths of the Moscow underground, and human civilization entered a new Dark Age. The year is 2033.','Action',179.99),('00000003','Atelier Sophie: The Alchemist of the Mysterious Book','Placeholder/atelier.jpg','17th in the Atelier series. The budding alchemist Sophie of Kirchen Bell meets the Mysterious Book, Plachta, and embarks on a wonderful adventure of fulfilling dreams.','Weeb',269.99),('00000004','Doki Doki Literature Club!','Placeholder/doki.jpg','The Literature Club is full of cute girls! Will you write the way into their heart? This game is not suitable for children or those who are easily disturbed.','Weeb',109.99);
 /*!40000 ALTER TABLE `games` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -109,7 +134,6 @@ CREATE TABLE `users` (
   `Password` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
   `Name` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `Funds` decimal(6,2) DEFAULT NULL,
   `UserType` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'User',
   PRIMARY KEY (`Username`,`Name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -121,7 +145,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('boyermo','$2y$10$VdtKCVMU4TVbZOmqKIHB7OmQLrzgpJKBIdy.RN/eLM5u4JD1y7ZgC','Rodrigo Roa','boye.roa@gmail.com',NULL,'User'),('demo','demo123','Este es un demo','demo@gmail.com',777.77,'admin'),('demo2','$2y$10$CD/fgn286OtA4jHhSm/y5.0DenrCgLtb6Hcfx.IKX1TgYaBEvZqea','Este Demo','demo2@yahoo.com',NULL,'User'),('demo3','$2y$10$0Hn6qVU5c6kj3/oAOq/srO16w8KVbYWyOVFAYwHquJsj63Qy672IC','demo3','demo3@yahoo.com',NULL,'admin'),('demo4','$2y$10$ZqY5dpHxVuQdlrxLHCDGsehDIJoE6fGIv6v8d8UXOz9duclEuwrr6','demo4','demo4@itesm.mx',NULL,'User'),('demo5','$2y$10$k9uALbu2ch3Ls38yP09UxuR1GPA1pVVy3t4zYoKkjteuyzczK3tLK','demo 5','demo@5.com',NULL,'User'),('DonYepez','yoSoyThanos','Luis Yépez','lyepez@tec.mx',4567.98,'User'),('DrGoku151','polloconmole2','Luis Armando Ortiz','luisrevilla20@gmail.com',9999.99,'User'),('pruebaE','$2y$10$XGJI3pjTEJk49PMkGM0zAuFXoWU/FMW03mjGJhgcdi7Nv0bgWl.XO','prueba E','prueba@e.com',NULL,'User'),('pruebaF','$2y$10$dKdLuWCgwYgw19TfWuSVGuTDZY.JGg5h6CQ1lpBb1YLWSlmjCGdIa','prueba F','prueba@f.com',NULL,'User'),('StarKiller9981','Prueba_123','Luis Daniel Roa','daniel.roa98@gmail.com',873.42,'User'),('Tlacuachi','lolis4eva','Luis Sebastian Vives','sebas_vives@hotmail.com',539.64,'User');
+INSERT INTO `users` VALUES ('','$2y$10$cXbQCxh0GZNRpNEOro76..j4kw7OWxFN0WVuX742FTzqWoxyTg8sS','','','User'),('boyermo','$2y$10$VdtKCVMU4TVbZOmqKIHB7OmQLrzgpJKBIdy.RN/eLM5u4JD1y7ZgC','Rodrigo Roa','boye.roa@gmail.com','User'),('demo','demo123','Este es un demo','demo@gmail.com','admin'),('demo2','$2y$10$CD/fgn286OtA4jHhSm/y5.0DenrCgLtb6Hcfx.IKX1TgYaBEvZqea','Este Demo','demo2@yahoo.com','User'),('demo3','$2y$10$0Hn6qVU5c6kj3/oAOq/srO16w8KVbYWyOVFAYwHquJsj63Qy672IC','demo3','demo3@yahoo.com','admin'),('demo4','$2y$10$ZqY5dpHxVuQdlrxLHCDGsehDIJoE6fGIv6v8d8UXOz9duclEuwrr6','demo4','demo4@itesm.mx','User'),('demo5','$2y$10$k9uALbu2ch3Ls38yP09UxuR1GPA1pVVy3t4zYoKkjteuyzczK3tLK','demo 5','demo@5.com','User'),('DonYepez','yoSoyThanos','Luis Yépez','lyepez@tec.mx','User'),('DrGoku151','polloconmole2','Luis Armando Ortiz','luisrevilla20@gmail.com','User'),('pruebaE','$2y$10$XGJI3pjTEJk49PMkGM0zAuFXoWU/FMW03mjGJhgcdi7Nv0bgWl.XO','prueba E','prueba@e.com','User'),('pruebaF','$2y$10$dKdLuWCgwYgw19TfWuSVGuTDZY.JGg5h6CQ1lpBb1YLWSlmjCGdIa','prueba F','prueba@f.com','User'),('StarKiller9981','Prueba_123','Luis Daniel Roa','daniel.roa98@gmail.com','User'),('Tlacuachi','lolis4eva','Luis Sebastian Vives','sebas_vives@hotmail.com','User'),('YepezFTW','$2y$10$i81joOXv7BKYYjxjcBmBveez9GFyAuMVb/K1LjFmI0OcpMMfpkf6S','Luis FTW','ftw@yepez.com','User');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -134,4 +158,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-04 19:41:37
+-- Dump completed on 2019-05-04 20:50:53
