@@ -44,11 +44,7 @@
 }
 
 body{
-<<<<<<< HEAD
-  background-image: url(Placeholder/background.png);
-=======
   background-image: url("https://images3.alphacoders.com/785/thumb-1920-785576.png");
->>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
