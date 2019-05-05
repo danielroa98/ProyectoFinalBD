@@ -6,8 +6,11 @@
 <html lang="en" dir="ltr" style="font-family:Arial">
   <head>
 
+<<<<<<< HEAD
     <title>User Login</title>
 
+=======
+>>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
     <header>
     <div class="topnav">
 

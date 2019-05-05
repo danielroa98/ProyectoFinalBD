@@ -1,6 +1,10 @@
 <!DOCTYPE HTML>
 
+<<<<<<< HEAD
 <link rel="stylesheet" href="styleFINAL.css">
+=======
+<link rel="stylesheet" href="styleFINAL.css"> 
+>>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
 <meta charset="utf-8">
 <html style="font-family:Arial">
 <head>
@@ -10,7 +14,11 @@
 
   <div class="topnav">
 
+<<<<<<< HEAD
       
+=======
+      <a href="cart.php"><img src="Placeholder/shopping-cart.png"></a>
+>>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
       <a class="active" href="register.php">Sign up</a>
       <a href="login.php">Login</a>
       <a href="home.php">Home</a>

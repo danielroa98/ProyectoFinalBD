@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
+<<<<<<< HEAD
   <link rel="stylesheet" href="styleFINAL.css">
+=======
+  <link rel="stylesheet" href="style.css">
+>>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
   <meta charset="utf-8">
   <head style="font-family:Arial">
 

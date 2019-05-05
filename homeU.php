@@ -19,14 +19,21 @@
     echo"<div class='topnav'>";
         echo"<a href='home.php'>Log Out</a>";
 
+<<<<<<< HEAD
         /*
 
+=======
+>>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
           $sql = "SELECT Amount FROM funds INNER JOIN creditcard ON (CREDITCARD_Number.funds) WHERE ";
           $result = $enlace->query($sql);
 
           $row = $result->fetch_assoc();
 
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
           $dB = "SELECT Username FROM Users";
           $resultado = $enlace->query($dB);
 
@@ -42,11 +49,19 @@
         echo "Funds: 0";
       }*/
 
+<<<<<<< HEAD
         //echo "<b>Welcome ".$roW['Username']."</b>";
 
         echo"<a href='cart.php'><img src='Placeholder/shopping-cart.png'></a>";
 
         //echo"<a>Funds Available: ".$row['Amount']." <img src='Placeholder/Yepez.png' height='15' height='3' hspace='5' style='margin-left:5px'> </a>";
+=======
+        echo "<b>Welcome ".$roW['Username']."</b>";
+
+        echo"<a href='cart.php'><img src='Placeholder/shopping-cart.png'></a>";
+
+        echo"<a>Funds Available: ".$row['Amount']." <img src='Placeholder/Yepez.png' height='15' height='3' hspace='5' style='margin-left:5px'> </a>";
+>>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
 
         echo"<a href='funds.php'>Add Funds</a>";
         echo"<a href='card.php'>Add CC</a>";
@@ -63,7 +78,11 @@
 <!–– Row 1 ––>
 <!–– Imagenes ––>
 
+<<<<<<< HEAD
 <!–– Cajitas con nombre/precio --–>
+=======
+<!–– Cajitas con nombre/precio ––>
+>>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
 
 
 <?php
