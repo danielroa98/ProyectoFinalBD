@@ -2,33 +2,20 @@
 
 <html lang="en" dir="ltr" style="font-family:Arial">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="styleFINAL.css">
   <meta charset="utf-8">
   <head>
 
     <title>Main Menu</title>
 
-    <?php
-
-    error_reporting(E_ALL);         //USADO PARA DEBUGEAR
-    ini_set('display_errors', 1);
-
-    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
-
-    //if ($enlace)
-      //echo "Conexión exitosa. <br>";
-    //else
-      //die("Conexión no exitosa.");
-
-    ?>
 
   </head>
 
   <header>
 
     <div class="topnav">
-      
-      <a href="cart.php"><img src="Placeholder/shopping-cart.png"></a>
+
+    <!---<a href="cart.php"><img src="Placeholder/shopping-cart.png"></a>--->
       <a href="register.php">Sign up</a>
       <a href="login.php">Login</a>
       <a class="active" href="#home">Home</a>
@@ -39,202 +26,107 @@
   <body style="font-family:Arial">
 
 <!–– Title ––>
-<h1 align="center" style="color:rgb(219, 216, 210);">LA MANSION DE LOLIS DE MEGU</h1>
+<h1 align="center" style="color:rgb(219, 216, 210);">LOLIS4LL</h1>
 <!–– Row 1 ––>
 <!–– Imagenes ––>
-<div class="row">
-
-    <div class="column"><img src="Placeholder/moonlighter.jpg" height="330" width="220" style ="border: 5px solid #362f32" ></div>
-
-    <div class="column"><img src="Placeholder/metro2033.jpg" height="330" width="220" style ="border: 5px solid #362f32" ></div>
-    
-    <div class="column"><img src="https://www.mobygames.com/images/covers/l/343684-atelier-sophie-the-alchemist-of-the-mysterious-book-limited-edition-playstation-4-front-cover.jpg" height="330" width="220" style ="border: 5px solid #362f32"></div>
-    
-    <div class="column"><img src="https://i.pinimg.com/564x/78/67/69/786769ba329d4fd3f8d3fe4e0b30b850.jpg" height="330" width="220" style ="border: 5px solid #362f32"></div>
-    
-    <div class="column"><img src="https://i.pinimg.com/564x/ef/b8/c5/efb8c5a0ea3e050ebb67936d451622e6.jpg" height="330" width="220" style ="border: 5px solid #362f32"></div>
-
-
-</div>
 
 <!–– Cajitas con nombre/precio ––>
-<div class="row">
-    <div class="column1"> 
-      <table class="tablebox1"> 
-        <tr> 
-          <td align="center " >Moonlighter</td>
-          <td> Ý159.99</td>
-        </tr>
 
-        <tr>
-          <td align="center " colspan="2"><a href="http://moonlighterthegame.com/">COMPRAR</a></td>
-        </tr>
-        </table>
-      </div>
 
-    <div class="column1"> 
-      <table class="tablebox1">
-       <tr>
-        <td align="center " colspan="2">Metro 2033</td>
-      </tr> 
-    </table>
-  </div>
-    
-    <div class="column1">
-     <table class="tablebox1"> 
-      <tr> 
-        <td align="center " colspan="2">POOPY HOLE</td>
-      </tr> 
-    </table>
-  </div>
-    
-    <div class="column1">
-     <table class="tablebox1"> 
-      <tr> 
-        <td align="center " colspan="2">POOPY HOLE</td>
-      </tr>
-       </table>
-     </div>
-    
-    <div class="column1"> 
-      <table class="tablebox1"> 
-        <tr> 
-          <td align="center " colspan="2">POOPY HOLE</td>
-        </tr> 
-      </table>
-    </div>
+<?php
+$conn = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
+  // Check connection
+  if ($conn->connect_error) {
+   die("Connection failed: " . $conn->connect_error);
+  }
 
-</div>
-    
-    <!–– Row 2 ––>
-    <br><br><br><br><br><br>
 
-    <!–– Imagenes ––>
-<div class="row">
+  $sqlImage = "SELECT Image FROM games";
+  $sqlPrice = "SELECT Price FROM games";
+  $sqlNombre = "SELECT Name FROM games";
+  $sqlDescripcion = "SELECT Description FROM games";
+  $resultDescripcion = $conn->query($sqlDescripcion);
+  $resultNombre = $conn->query($sqlNombre);
+  $resultImg = $conn->query($sqlImage);
+  $resultPrice = $conn->query($sqlPrice);
 
-    <div class="column"><img src="https://i.pinimg.com/564x/d4/1d/17/d41d170fbbd13ec66118ff8479562007.jpg" height="330" width="220" style ="border: 5px solid #362f32" ></div>
+  $rowcount = mysqli_num_rows($resultImg);
+  $x = $rowcount / 6;
+  $counter1 = $rowcount;
+  $counter2 = $rowcount;
+  //printf("Result set has ".$x);
+ // if ($result->num_rows > 0) {
+   // output data of each row
+    for($j=0;$j<$x;$j++){
+    echo '<div >';
+    echo'<table>';
+    echo' <tr>';
+    $i = 0;
+    while($i<6 && $counter1>0){
+      $img = $resultImg->fetch_assoc();
+      //Imagen
 
-    <div class="column"><img src="https://i.pinimg.com/564x/45/e8/a9/45e8a941a2032984fd98496ac65fee20.jpg" height="330" width="220" style ="border: 5px solid #362f32" ></div>
-    
-    <div class="column"><img src="https://i.pinimg.com/564x/a8/fe/34/a8fe345ba8c8c178b2a303cbbd1dd334.jpg" height="330" width="220" style ="border: 5px solid #362f32"></div>
-    
-    <div class="column"><img src="https://i.pinimg.com/564x/fc/06/9b/fc069b4692011c03bcc930a64ac35b65.jpg" height="330" width="220" style ="border: 5px solid #362f32"></div>
-    
-    <div class="column"><img src="https://i.pinimg.com/564x/16/e4/61/16e461bdad5e3adc7ca2c5ff2544c4af.jpg" height="330" width="220" style ="border: 5px solid #362f32"></div>
-</div>
-<!–– Cajitas con nombre/precio ––>
-<div class="row">
-    <div class="column1"> 
-      <table class="tablebox1"> 
-        <tr> 
-          <td align="center " >Moonlighter</td>
-          <td> Ý159.99</td>
-        </tr>
+      echo'<td>';
+      echo'<div class="overlay-image">';
+      echo '<img class="image" src="'.$img["Image"].'" height="330" width="220" style ="border: 5px solid #362f32">';
+      echo'<div class="normal">';//normal
 
-        <tr>
-          <td align="center " colspan="2"><a href="http://moonlighterthegame.com/">COMPRAR</a></td>
-        </tr>
-        </table>
-      </div>
+       // echo'<div class="text"><a>IMAGEN</a></div>';//normal text
+      echo'</div>';//normal
+      $nombre = $resultNombre ->fetch_assoc();
+      echo'<div class="hover">';//hover
+      echo'<div class="text">';
+      echo$nombre["Name"];
+      echo'<br>';
+      echo'</div>';//hover text
+      $descripcion = $resultDescripcion->fetch_assoc();
 
-    <div class="column1"> 
-      <table class="tablebox1">
-       <tr>
-        <td align="center " colspan="2">Metro 2033</td>
-      </tr> 
-    </table>
-  </div>
-    
-    <div class="column1">
-     <table class="tablebox1"> 
-      <tr> 
-        <td align="center " colspan="2">POOPY HOLE</td>
-      </tr> 
-    </table>
-  </div>
-    
-    <div class="column1">
-     <table class="tablebox1"> 
-      <tr> 
-        <td align="center " colspan="2">POOPY HOLE</td>
-      </tr>
-       </table>
-     </div>
-    
-    <div class="column1"> 
-      <table class="tablebox1"> 
-        <tr> 
-          <td align="center " colspan="2">POOPY HOLE</td>
-        </tr> 
-      </table>
-    </div>
+      echo'<div class="textdescription">';
+      echo$descripcion["Description"];
+      echo'</div>';//hover text
+      echo'<a href="http://moonlighterthegame.com/"><img class="buybutton" src="Placeholder/buy.png" ></a>';
+      echo'</div>';//hover
+     // echo'</div>'; //overlay
 
-</div>
+      echo'</div>';
+      echo'</td>';
 
-    <!–– Row 3 ––>
-    <br><br><br><br><br><br>
+      $i++;
+      $counter1--;
+    } //while
 
-    <!–– Imagenes ––>
-<div class="row">
+    echo'</tr>';
 
-    <div class="column"><img src="https://i.pinimg.com/564x/f0/04/21/f00421e292681613be092209e6e2fde6.jpg" height="330" width="220" style ="border: 5px solid #362f32" ></div>
+    //Precio
+    $i=0;
+    echo'<tr>';
+    while($i<6 && $counter2>0){
+      $price = $resultPrice->fetch_assoc();
+        echo'<td align="center" style ="border: 5px solid #362f32" class="pricetxt">'.$price["Price"];
+        if($price!=null){
+          echo'<img src="Placeholder/Yepez.png" height="30" height="30 hspace="20" style="margin-left:5px">';
+        }
+        //'<img src="Placeholder/Yepez.png" height="40" height="40 hspace="20" >
+      echo'</td>';
+      $i++;
+      $counter2--;
+    }
+    echo'</tr>';
+    echo'</table>';
+    echo'</div>';
+    echo'<br><br><br>';
+  }
+//}//if
 
-    <div class="column"><img src="https://i.pinimg.com/564x/97/3f/d1/973fd13f543af101e665da6bc3a20982.jpg" height="330" width="220" style ="border: 5px solid #362f32" ></div>
-    
-    <div class="column"><img src="https://steamuserimages-a.akamaihd.net/ugc/940560026041862778/C0A604EE84C4DA243528D087D36BF9965D0E548F/" height="330" width="220" style ="border: 5px solid #362f32"></div>
-    
-    <div class="column"><img src="https://i.pinimg.com/564x/4f/bc/6d/4fbc6d1efb03f7d02fb96b9ac9a12e86.jpg" height="330" width="220" style ="border: 5px solid #362f32"></div>
-    
-    <div class="column"><img src="https://i.pinimg.com/564x/e0/58/69/e0586902672a05be08686b8e4e62a999.jpg" height="330" width="220" style ="border: 5px solid #362f32"></div>
-</div>
-<!–– Cajitas con nombre/precio ––>
-<div class="row">
-    <div class="column1"> 
-      <table class="tablebox1"> 
-        <tr> 
-          <td align="center " >Moonlighter</td>
-          <td> Ý159.99</td>
-        </tr>
 
-        <tr>
-          <td align="center " colspan="2"><a href="http://moonlighterthegame.com/">COMPRAR</a></td>
-        </tr>
-        </table>
-      </div>
+  //  echo "</table>";
+ //else { echo "0 results"; }
+$conn->close();
+?>
 
-    <div class="column1"> 
-      <table class="tablebox1">
-       <tr>
-        <td align="center " colspan="2">Metro 2033</td>
-      </tr> 
-    </table>
-  </div>
-    
-    <div class="column1">
-     <table class="tablebox1"> 
-      <tr> 
-        <td align="center " colspan="2">POOPY HOLE</td>
-      </tr> 
-    </table>
-  </div>
-    
-    <div class="column1">
-     <table class="tablebox1"> 
-      <tr> 
-        <td align="center " colspan="2">POOPY HOLE</td>
-      </tr>
-       </table>
-     </div>
-    
-    <div class="column1"> 
-      <table class="tablebox1"> 
-        <tr> 
-          <td align="center " colspan="2">POOPY HOLE</td>
-        </tr> 
-      </table>
-    </div>
 
-</div>
+
+
   </body>
 
 </html>
