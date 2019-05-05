@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styleFINAL.css">
     <meta charset="utf-8">
 
     <html lang="sp" dir="ltr" style="font-family:Arial">
         <title>User Login</title>
-    
+
         <body>
         <?php
 
@@ -21,7 +21,7 @@
 
             //$result_query = mysqli_query($enlace, "SELECT * FROM gamestore.users WHERE Username = '".$_POST["username"]."' AND Password = '".$_POST["password"]."';");
 
-            $result_query = mysqli_query($enlace, "SELECT * FROM gamestore.users WHERE Username = '".$_POST["username"]."';");
+            $result_query = mysqli_query($enlace, "SELECT * FROM gamestore.users WHERE Username = '".$_GET["username"]."';");
 
             //valor de hash = $hash
 
@@ -29,10 +29,10 @@
 
              while($row = mysqli_fetch_array($result_query)) {
 
-                $username = $row["Username"]; 
-                $passwordHASH = $row["Password"]; 
+                $username = $row["Username"];
+                $passwordHASH = $row["Password"];
 
-                $passwordDEHASH = password_verify($_POST["password"], $passwordHASH);
+                $passwordDEHASH = password_verify($_GET["password"], $passwordHASH);
 
                 if ($passwordDEHASH == true) {
 
@@ -45,7 +45,8 @@
                         header("Location: homeU.php");
 
                 } else {
-                    header("Location: passwordERROR.php");
+                    //header("Location: passwordERROR.php");
+                    echo"You were right";
                 }
 
             }//fin while
@@ -54,10 +55,10 @@
                 echo "ERROR...USER DOESN'T EXIST";
              }
 
-            
+
 
         ?>
-        
+
 
         </body>
     </html>

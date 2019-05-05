@@ -18,22 +18,17 @@
     else
       die("Conexión no exitosa.");
 
-      $username = $_POST['username'];
-      $name = $_POST['name'];
-      $password = $_POST['password'];
-      $passwordVER = $_POST['passwordVER'];
-      $email = $_POST['email'];
+      $ccNum = $_POST['ccNum'];
+      $funds = $_POST['funds'];
 
-     $hash = password_hash($password, PASSWORD_DEFAULT);
-
-    $insert_query = mysqli_query($enlace, "INSERT INTO USERS (`Username`, `Name`, `Password`, `Email`) VALUES
-    ('$username', '$name', '$hash', '$email');");
+    $insert_query = mysqli_query($enlace, "INSERT INTO FUNDS (`CREDITCARD_Number`, `Amount`) VALUES
+    ('$ccNum', '$funds');");
 
       echo mysqli_error($enlace);
 
      echo" ";
-    
-      header("Location: loginF.php");
+
+      header("Location: homeU.php");
 
       //echo $hash;
     ?>

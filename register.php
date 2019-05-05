@@ -1,6 +1,6 @@
 <!DOCTYPE HTML>
 
-<link rel="stylesheet" href="style.css">  
+<link rel="stylesheet" href="styleFINAL.css">
 <meta charset="utf-8">
 <html style="font-family:Arial">
 <head>
@@ -9,12 +9,12 @@
 <body>
 
   <div class="topnav">
+
       
-      <a href="cart.php"><img src="Placeholder/shopping-cart.png"></a>
       <a class="active" href="register.php">Sign up</a>
       <a href="login.php">Login</a>
       <a href="home.php">Home</a>
-  
+
   </div>
 
 <h1>Registration</h1>
@@ -26,14 +26,17 @@
 
     $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
 
+    /*
+
     if ($enlace)
       echo "Conexión exitosa. <br>";
     else
       die("Conexión no exitosa.");
-    
+
+      */
     ?>
 
-    <form name = "nombre_form" action = "conexion.php" method = "post">
+    <form name = "nombre_form" action = "addUser.php" method = "post">
 
         <h4>Username</h4>
         <input type="text" name="username"></input>
@@ -50,7 +53,7 @@
         <h4>Email Address</h4>
         <input type="text" name="email"></input>
 
-        <input type ="submit" name="accept" value="Aceptar"></input>
+        <input type ='submit' name="accept" value="Aceptar"></input>
 
     </form>
 
