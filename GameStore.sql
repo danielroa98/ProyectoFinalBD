@@ -54,10 +54,9 @@ CREATE TABLE `creditcard` (
   `Number` varchar(16) COLLATE utf8_unicode_ci NOT NULL,
   `SecurityCode` varchar(4) COLLATE utf8_unicode_ci NOT NULL,
   `ExpirationDate` varchar(5) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `USERS_Username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `OwnerName` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`Number`),
-  KEY `fk_CREDITCARD_USERS1_idx` (`USERS_Username`),
-  CONSTRAINT `fk_CREDITCARD_USERS1` FOREIGN KEY (`USERS_Username`) REFERENCES `users` (`Username`)
+  KEY `fk_CREDITCARD_USERS1_idx` (`OwnerName`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -67,7 +66,7 @@ CREATE TABLE `creditcard` (
 
 LOCK TABLES `creditcard` WRITE;
 /*!40000 ALTER TABLE `creditcard` DISABLE KEYS */;
-INSERT INTO `creditcard` VALUES ('1234123412341234','1234','05/20','DrGoku151'),('2345234523452345','2345','07/20','Tlacuachi'),('3456345634563456','3456','08/20','DonYepez'),('5678567856785678','5678','06/20','StarKiller9981');
+INSERT INTO `creditcard` VALUES ('7890789078907890','7890','08/19','Rodrigo Roa');
 /*!40000 ALTER TABLE `creditcard` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -107,11 +106,12 @@ DROP TABLE IF EXISTS `users`;
  SET character_set_client = utf8mb4 ;
 CREATE TABLE `users` (
   `Username` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `Password` varchar(15) COLLATE utf8_unicode_ci NOT NULL,
-  `Name` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `Password` varchar(300) COLLATE utf8_unicode_ci NOT NULL,
+  `Name` varchar(70) COLLATE utf8_unicode_ci NOT NULL,
   `Email` varchar(70) COLLATE utf8_unicode_ci DEFAULT NULL,
   `Funds` decimal(6,2) DEFAULT NULL,
-  PRIMARY KEY (`Username`)
+  `UserType` varchar(10) COLLATE utf8_unicode_ci NOT NULL DEFAULT 'User',
+  PRIMARY KEY (`Username`,`Name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -121,7 +121,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES ('DonYepez','yoSoyThanos','Luis Yépez','lyepez@tec.mx',4567.98),('DrGoku151','polloconmole2','Luis Armando Ortiz','luisrevilla20@gmail.com',9999.99),('StarKiller9981','Prueba_123','Luis Daniel Roa','daniel.roa98@gmail.com',873.42),('Tlacuachi','lolis4eva','Luis Sebastian Vives','sebas_vives@hotmail.com',539.64);
+INSERT INTO `users` VALUES ('boyermo','$2y$10$VdtKCVMU4TVbZOmqKIHB7OmQLrzgpJKBIdy.RN/eLM5u4JD1y7ZgC','Rodrigo Roa','boye.roa@gmail.com',NULL,'User'),('demo','demo123','Este es un demo','demo@gmail.com',777.77,'admin'),('demo2','$2y$10$CD/fgn286OtA4jHhSm/y5.0DenrCgLtb6Hcfx.IKX1TgYaBEvZqea','Este Demo','demo2@yahoo.com',NULL,'User'),('demo3','$2y$10$0Hn6qVU5c6kj3/oAOq/srO16w8KVbYWyOVFAYwHquJsj63Qy672IC','demo3','demo3@yahoo.com',NULL,'admin'),('demo4','$2y$10$ZqY5dpHxVuQdlrxLHCDGsehDIJoE6fGIv6v8d8UXOz9duclEuwrr6','demo4','demo4@itesm.mx',NULL,'User'),('demo5','$2y$10$k9uALbu2ch3Ls38yP09UxuR1GPA1pVVy3t4zYoKkjteuyzczK3tLK','demo 5','demo@5.com',NULL,'User'),('DonYepez','yoSoyThanos','Luis Yépez','lyepez@tec.mx',4567.98,'User'),('DrGoku151','polloconmole2','Luis Armando Ortiz','luisrevilla20@gmail.com',9999.99,'User'),('pruebaE','$2y$10$XGJI3pjTEJk49PMkGM0zAuFXoWU/FMW03mjGJhgcdi7Nv0bgWl.XO','prueba E','prueba@e.com',NULL,'User'),('pruebaF','$2y$10$dKdLuWCgwYgw19TfWuSVGuTDZY.JGg5h6CQ1lpBb1YLWSlmjCGdIa','prueba F','prueba@f.com',NULL,'User'),('StarKiller9981','Prueba_123','Luis Daniel Roa','daniel.roa98@gmail.com',873.42,'User'),('Tlacuachi','lolis4eva','Luis Sebastian Vives','sebas_vives@hotmail.com',539.64,'User');
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -134,4 +134,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2019-05-03 13:39:54
+-- Dump completed on 2019-05-04 19:41:37
