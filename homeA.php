@@ -1,3 +1,8 @@
+<?php
+// Start the session
+session_start();
+?>
+
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr" style="font-family:Arial">
@@ -9,27 +14,56 @@
     <title>Main Menu</title>
 
 
+    <?php
+
+    error_reporting(E_ALL);         //USADO PARA DEBUGEAR
+    ini_set('display_errors', 1);
+
+    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
+
+    //if ($enlace)
+      //echo "Conexión exitosa. <br>";
+    //else
+      //die("Conexión no exitosa.");
+
+    //$sql = "SELECT id, Name, Price FROM games";
+   // $result = $conn-> query($sql);
+
+    ?>
+
+
   </head>
 
   <header>
-
     <div class="topnav">
-        <a href="home.php">Log Out</a>
-        <a href="gameS.php">Game Settings</a>
-        <!---<a href="userS.php">User Settings</a>--->
-        <a class="active" href="homeA.php">Home</a>
-    </div>
+    <?php
+    //session_start();
+    $username = $_SESSION['User'];
+    //$fondos = $_SESSION['Fondos'];
 
-    </header>
+    echo'<a href="login.php">Log Out</a>';
+    echo'<a href="gameS.php">Game Settings</a>';
+
+    echo'<b>'.$username.'</b>';
+    /*if($fondos==null){
+      echo'<b>Fondos: 0.00<img src="Placeholder/Yepez.png" height="15" height="3" hspace="5" style="margin-left:5px"></b>';
+    }
+    else{
+      echo'<b>Fondos: '.$fondos.'<img src="Placeholder/Yepez.png" height="15" height="3" hspace="5" style="margin-left:5px"></b>';
+    }*/
+
+    echo'<a class="active" href="homeA.php">Home</a>';
+
+    ?>
+  </div>
+  </header>
 
   <body style="font-family:Arial">
 
-<!–– Title ––>
-<h1 align="center" style="color:rgb(219, 216, 210);">LOLIS4LL</h1>
-<!–– Row 1 ––>
-<!–– Imagenes ––>
+<h1 align="center" >
+  <img src="Placeholder/logo_transparent.png" height="200" width="300">
+</h1>
 
-<!–– Cajitas con nombre/precio ––>
 
 
 <?php

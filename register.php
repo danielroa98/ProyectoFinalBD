@@ -9,14 +9,6 @@
 </head>
 <body>
 
-  <div class="topnav">
-
-      <a class="active" href="register.php">Sign up</a>
-      <a href="login.php">Login</a>
-      <a href="home.php">Home</a>
-
-  </div>
-
 <h1>Registration</h1>
 <p>Please insert the following information</p>
 

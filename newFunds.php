@@ -28,7 +28,7 @@
 
      echo" ";
 
-      header("Location: homeU.php");
+      header("Location: home.php");
 
       //echo $hash;
     ?>

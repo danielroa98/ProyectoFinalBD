@@ -1,3 +1,7 @@
+<?php
+// Start the session
+session_start();
+?>
 <!DOCTYPE html>
 
     <link rel="stylesheet" href="styleFINAL.css">
@@ -8,7 +12,6 @@
 
         <body>
         <?php
-
             //$nombre = $_POST['nombre'];
 
             $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
@@ -32,6 +35,9 @@
                 $username = $row["Username"];
                 $passwordHASH = $row["Password"];
 
+                //session_start();
+                $_SESSION['User'] = $username;
+
                 $passwordDEHASH = password_verify($_GET["password"], $passwordHASH);
 
                 if ($passwordDEHASH == true) {
@@ -40,13 +46,13 @@
 
                     if($tipoUser == 'admin'){
                     header("Location: homeA.php");
-                     }
+                     }  
                      else
-                        header("Location: homeU.php");
+                        header("Location:home.php");
 
                 } else {
                     //header("Location: passwordERROR.php");
-                    echo"You were right";
+                    echo"Incorrect password";
                 }
 
             }//fin while

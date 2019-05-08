@@ -1,41 +1,44 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-<<<<<<< HEAD
   <link rel="stylesheet" href="styleFINAL.css">
-=======
   <link rel="stylesheet" href="style.css">
->>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
   <meta charset="utf-8">
   <head style="font-family:Arial">
 
     <title>Add New Card</title>
 
     <header>
-<<<<<<< HEAD
-    <div class="topnav">
-      <a href="home.php">Log Out</a>
-=======
-    <div class="topnav">   
-      <a href="home.php">Log Out</a>  
->>>>>>> ffe240d824513c20f2e67020d426a8bf56f64834
-      <a href="cart.php"><img src="Placeholder/shopping-cart.png"></a>
-      <a href="funds.php">Add Funds</a>
-      <a class="active" href="card.php">Add CC</a>
-      <a href="homeU.php">Home</a>
-    </div>
+      <div class="topnav">
+      <?php
+      session_start();
+      $username = $_SESSION['User'];
+      $fondos = $_SESSION['Fondos'];
 
+      echo'<a href="login.php">Log Out</a>';
+      echo'<a href="cart.php"><img src="shopping-cart.png"></a>';
+      echo'<a href="funds.php">Add Funds</a>';
+      echo'<a class="active" href="card.php">Add CreditCard</a>';
+
+      echo'<b>'.$username.'</b>';
+      if($fondos==null){
+        echo'<b>Fondos: 0.00<img src="Placeholder/Yepez.png" height="15" height="3" hspace="5" style="margin-left:5px"></b>';
+      }
+      else{
+        echo'<b>Fondos: '.$fondos.'<img src="Placeholder/Yepez.png" height="15" height="3" hspace="5" style="margin-left:5px"></b>';
+      }
+      echo'<a href="home.php">Home</a>';
+
+      ?>
+    </div>
     </header>
 
   </head>
   <body style="font-family:Arial">
 
-    <h2 style="text-align:center">Pleade insert the following information</h2>
+    <h2 style="text-align:center" class="pricetxt">Please insert the following information:</h2>
 
     <form name="add_card" action="newCard.php" method="post">
-
-    <h4>Owner's name</h4>
-    <input type="text" name="ownName"></input>
 
     <h4>Credit Card Number:</h4>
     <input type="text" name="ccNum"></input>
