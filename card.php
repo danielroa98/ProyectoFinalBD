@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 
-  <link rel="stylesheet" href="styleFINAL.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="estilo.css">
   <meta charset="utf-8">
   <head style="font-family:Arial">
 
@@ -16,6 +15,12 @@
       $fondos = $_SESSION['Fondos'];
 
       echo'<a href="login.php">Log Out</a>';
+      echo'<a>';
+        echo'<form action="/ProyectoFinal/homeS.php" method="get">';
+        echo'<input type="text" name="gamename">';
+        echo'<input type="submit" value="Submit">';
+        echo'</form>';
+        echo'</a>';
       echo'<a href="cart.php"><img src="shopping-cart.png"></a>';
       echo'<a href="funds.php">Add Funds</a>';
       echo'<a class="active" href="card.php">Add CreditCard</a>';
@@ -40,19 +45,26 @@
 
     <form name="add_card" action="newCard.php" method="post">
 
-    <h4>Credit Card Number:</h4>
-    <input type="text" name="ccNum"></input>
+    <table class="finaltable">
+      <tr>
+    <td>Credit Card Number:</td>
+    <td><input type="text" name="ccNum"></input></td>
+      </tr>
 
-    <h4>Expiration Date (MM/YY):</h4>
-    <input type="text" name="expDate"></input>
+      <tr>
+    <td>Expiration Date (MM/YY):</td>
+    <td><input type="text" name="expDate"></input></td>
+      </tr>
 
-    <h4>Security Code</h4>
-    <input type="text" name="ccV"></input>
+      <tr>
+    <td>Security Code</td>
+    <td><input type="text" name="ccV"></input></td>
+      </tr>
 
-    <br>
-    <br>
-
-    <input type="submit" name="submit" value="Submit">
+      <tr>
+    <td colspan="2" align="right"><input type="submit" name="submit" value="Submit"></td>
+      </tr>
+    </table>
 
     </form>
   </body>

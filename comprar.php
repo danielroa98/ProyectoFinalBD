@@ -2,7 +2,7 @@
 
 <html lang="en" dir="ltr" style="font-family:Arial">
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="estilo.css">
   <meta charset="utf-8">
   <head>
 
@@ -10,7 +10,7 @@
    </head>
 
    <body>
-   	<table>
+   	<table class="shoppingtable">
    		<tr>
 <?php 
 	//Obtener fondos de la persona y el precio final
@@ -70,7 +70,7 @@ $conn = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
 }
 
 
-		$sql = "UPDATE funds SET Amount = $cambio WHERE CREDITCARD_Number = '$cardnumber'";
+		$sql = "UPDATE users SET Funds = $cambio WHERE Username = '$username'";
 		mysqli_query($conn, $sql);
     	$sqlDelete = "DELETE FROM cart WHERE USERS_Username = '$username'";
 		if (mysqli_query($conn, $sqlDelete)) {

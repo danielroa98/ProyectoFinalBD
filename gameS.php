@@ -7,7 +7,7 @@ session_start();
 <html lang="en" dir="ltr">
 
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="estilo.css">
 
   <meta charset="utf-8">
   <head style="font-family:Arial">
@@ -61,11 +61,10 @@ session_start();
     <br>
     <br>
 
-        <table>
+        <table class="shoppingtable">
             <tr align="center">
-            <th align="left" ><h3>New Game</h3></th>
-            <td>-------------------------------------------------------</td>
-            <td align="right" ><h3>Remove Game</h3></td>
+            <td align="left" style="padding: 20px;"><h3>New Game</h3></td>
+            <td align="right" style="padding: 20px;"><h3>Remove Game</h3></td>
             </tr><!---FIN PRIMERA HILERA--->
 
             <tr>
@@ -77,8 +76,6 @@ session_start();
 
               </form>
               </td>
-
-              <td>------------------------------------------------------------------</td>
 
               <td align="right">
 

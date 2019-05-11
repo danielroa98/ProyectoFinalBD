@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="estilo.css">
   <meta charset="utf-8">
 
 <html lang="en" dir="ltr" style="font-family:Arial">
@@ -23,25 +23,34 @@
   <body>
 
     <form name="login_form" action="verified.php" method="get">
+      <table class="shoppingtable" style="margin-top: 200px">
+        <tr>
+        <td>Username:</td>
+        <td><input type="text" name="username"></input></td>
+        </tr>
 
-        <h4>Username:</h4>
-        <input type="text" name="username"></input>
+        <tr>
+        <td>Password:</td>
+        <td><input type="password" name="password"></input></td>
+          </tr>
 
-        <h4>Password:</h4>
-        <input type="password" name="password"></input>
-          <br/>
-          <br>
-        <input type="submit" name="login" value="Login">
-    </form>
+          <tr>
+        <td colspan="2"><input type="submit" name="login" value="Login"></td>
+      </tr>
+          </form>
+      <tr>
+        <form class="register_form" action="register.php" method="post">
+        <td colspan="2">Don't have an account? <input type="submit" name="register" value="Click Here"></td>
+        </form>
+      </tr>
 
-    <form class="register_form" action="register.php" method="post">
+
+    
 
       <p>
-        <h4>So, you dont have an account yet?</h4>
-        <h4>Click</h4> <input type="submit" name="register" value="Here">
 
     </p>
-
+    </table>
     </form>
 
 

@@ -249,7 +249,7 @@ body{
  background-color: rgba(0,0,0,0.5);
 }
 
-.buybutton{
+img.buybutton{
   height: 80px;
   width: 80px;
   position: absolute;

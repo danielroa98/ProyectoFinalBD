@@ -12,22 +12,6 @@
 <h1>Registration</h1>
 <p>Please insert the following information</p>
 
-<?php
-    error_reporting(E_ALL);         //USADO PARA DEBUGEAR
-    ini_set('display_errors', 1);
-
-    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
-
-    /*
-
-    if ($enlace)
-      echo "Conexión exitosa. <br>";
-    else
-      die("Conexión no exitosa.");
-
-      */
-    ?>
-
     <form name = "nombre_form" action = "addUser.php" method = "post">
 
         <h4>Username</h4>

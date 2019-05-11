@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <link rel="stylesheet" href="styleFINAL.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="estilo.css">
   <meta charset="utf-8">
   <head style="font-family:Arial">
 
@@ -15,6 +14,12 @@
       $fondos = $_SESSION['Fondos'];
 
       echo'<a href="login.php">Log Out</a>';
+      echo'<a>';
+        echo'<form action="/ProyectoFinal/homeS.php" method="get">';
+        echo'<input type="text" name="gamename">';
+        echo'<input type="submit" value="Submit">';
+        echo'</form>';
+        echo'</a>';
       echo'<a href="cart.php"><img src="shopping-cart.png"></a>';
       echo'<a class="active" href="funds.php">Add Funds</a>';
       echo'<a href="card.php">Add CreditCard</a>';
@@ -38,21 +43,22 @@
     <h2 style="text-align:center" class="pricetxt">Please insert the following information</h2>
 
     <form name="add_funds" action="newFunds.php" method="post" style="text-align:left">
-<table>
+
+<table class="finaltable">
     <tr>
     <td>Credit Card Number</td>
     <td><input type="text" name="ccNum"></input></td>
     </tr>
 
     <tr>
-    <td>Amount of funds you wish to add:</td>
+    <td >Amount of funds you wish to add:</td>
     <td><input type="text" name="funds"></input></td>
     </tr>
 
     <tr>
     <td align="right" colspan="2"><input type="submit" name="accept" value="Accept"></td>
     </tr>
-</table>
+</table class="finaltable">
     </form>
 
   </body>

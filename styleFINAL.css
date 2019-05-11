@@ -256,6 +256,24 @@ body{
   margin-left: 70px;
   margin-top: 260px;
 }
+
+img.trashbutton{
+height: 39px;
+width: 53px;
+position: absolute;
+margin-left: 145px;
+margin-top: 270px;
+}
+
+img.editbutton{
+height: 39px;
+width: 53px;
+position: absolute;
+margin-left: 20px;
+margin-top: 270px;
+}
+
+
 .tableshopping {
 border: solid 5px #362f32;
 position: absolute;
@@ -276,3 +294,4 @@ font-size: 20px;
 border: solid 3px #362f32;
 background-color: white;
 }
+

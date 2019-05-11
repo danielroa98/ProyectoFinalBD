@@ -17,7 +17,7 @@ session_start();
     error_reporting(E_ALL);         //USADO PARA DEBUGEAR
     ini_set('display_errors', 1);
 
-    $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
+    //$enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
 
     //if ($enlace)
       //echo "Conexión exitosa. <br>";
@@ -35,58 +35,63 @@ session_start();
 
     <div class="topnav">
       <?php
-      $conn = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
+      $conn = mysqli_connect("127.0.0.1", "adminVG", "demo.123", "GameStore");
 
 
       $username = $_SESSION['User'];
       $idtest = $username;
 
       //$sqlFund = "SELECT SecurityCode FROM creditcard WHERE OwnerName = '$idtest'";
-      $sqlFund = "SELECT Amount FROM funds INNER JOIN creditcard ON creditcard.Number = funds.CREDITCARD_Number WHERE OwnerName = '$idtest'";
+      $sqlFund = "SELECT Funds FROM Users WHERE Username = '$idtest'";
       $result = mysqli_query($conn, $sqlFund);
       $rs = mysqli_fetch_array($result);
 
 
       echo'<a href="login.php">Log Out</a>';
+              echo'<a>';
+        echo'<form action="/ProyectoFinal/homeS.php" method="get">';
+        echo'<input type="text" name="gamename">';
+        echo'<input type="submit" value="Submit">';
+        echo'</form>';
+        echo'</a>';
       echo'<a href="cart.php"><img src="shopping-cart.png"></a>';
       echo'<a href="funds.php">Add Funds</a>';
       echo'<a href="card.php">Add CreditCard</a>';
 
       echo'<b>'.$username.'</b>';
-      if($rs['Amount']==null){
+      if($rs['Funds']==null){
         echo'<b>Fondos: 0.00<img src="Placeholder/Yepez.png" height="15" height="3" hspace="5" style="margin-left:5px"></b>';
       }
       else{
-        echo'<b>Fondos: '.$rs['Amount'].'<img src="Placeholder/Yepez.png" height="15" height="3" hspace="5" style="margin-left:5px"></b>';
+        echo'<b>Fondos: '.$rs['Funds'].'<img src="Placeholder/Yepez.png" height="15" height="3" hspace="5" style="margin-left:5px"></b>';
       }
-      echo'<a class="active" href="#home">Home</a>';
+        //Buscar juego
+      echo'<a class="active" href="home.php">Home</a>';
 
 
-      $fondos = $rs['Amount'];
+      $fondos = $rs['Funds'];
       $_SESSION['Fondos'] = $fondos;
 
 
 echo mysqli_error($conn);
 
-      ?>
-    </div>
 
-    </header>
+    echo'</div>';
 
-  <body style="font-family:Arial">
+    echo'</header>';
 
-<h1 align="center" >
-  <img src="Placeholder/logo_transparent.png" height="200" width="300">
-</h1>
+  echo'<body style="font-family:Arial">';
 
+echo'<h1 align="center" >';
+  echo'<img src="Placeholder/logo_transparent.png" height="200" width="300">';
+echo'</h1>';
 
-
-<?php
-$conn = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
+//$conn = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
   // Check connection
   if ($conn->connect_error) {
    die("Connection failed: " . $conn->connect_error);
   }
+
 
   //Variables y conexiones
   $sqlImage = "SELECT Image FROM games";
@@ -142,7 +147,7 @@ $conn = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
       echo'</div>';//hover text
       //$id = $idarray["id"];
      // $_SESSION['id']=$id;
-      echo'<a href="insertcart.php?hashtag='.$idarray["id"].'"><img class="buybutton" src="Placeholder/buy.png" ></a>';
+      echo'<a href="insertcart.php?hashtag='.$idarray["id"].'"><img class="buybutton" src="Placeholder/comprar.png" ></a>';
       echo'</div>';//hover
      // echo'</div>'; //overlay
 

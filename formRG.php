@@ -44,8 +44,8 @@ session_start();
 
     <form name = "removeG_form" action = "removeGame.php" method = "post">
 
-        <h4>Game id</h4>
-        <input type="text" name="id"></input>
+        <h4>Game name</h4>
+        <input type="text" name="name"></input>
 
         <input type ='submit' name="accept" value="Remove"></input>
 

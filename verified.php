@@ -14,17 +14,13 @@ session_start();
         <?php
             //$nombre = $_POST['nombre'];
 
-            $enlace = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
+            //$conn = mysqli_connect("127.0.0.1", "adminVG", "demo.123", "GameStore");
 
-            if ($enlace)
+            $conn = mysqli_connect("127.0.0.1", "adminVG", "demo.123", "GameStore");
+
+            if ($conn){
                 echo "Conexión exitosa. <br>";
-
-            else
-                die("Conexión no exitosa.");
-
-            //$result_query = mysqli_query($enlace, "SELECT * FROM gamestore.users WHERE Username = '".$_POST["username"]."' AND Password = '".$_POST["password"]."';");
-
-            $result_query = mysqli_query($enlace, "SELECT * FROM gamestore.users WHERE Username = '".$_GET["username"]."';");
+                $result_query = mysqli_query($conn, "SELECT * FROM gamestore.users WHERE Username = '".$_GET["username"]."';");
 
             //valor de hash = $hash
 
@@ -34,13 +30,13 @@ session_start();
 
                 $username = $row["Username"];
                 $passwordHASH = $row["Password"];
+                //echo$username;
 
                 //session_start();
                 $_SESSION['User'] = $username;
 
                 $passwordDEHASH = password_verify($_GET["password"], $passwordHASH);
-
-                if ($passwordDEHASH == true) {
+                if ($passwordDEHASH == true AND $username == $_GET["username"]) {
 
                     $tipoUser = $row["UserType"];
 
@@ -52,14 +48,30 @@ session_start();
 
                 } else {
                     //header("Location: passwordERROR.php");
-                    echo"Incorrect password";
+                    //echo"Incorrect password";
+                        echo "<script>alert('Incorrect password');</script>";
+                      echo'<meta http-equiv="refresh" content="0;URL=login.php" />';
                 }
 
             }//fin while
                 }//fin $result_query
             else {
-                echo "ERROR...USER DOESN'T EXIST";
+                echo'ERROR...USER DOESNT EXIST';
+                echo "<script>alert('Usuario ingresado no existe');</script>";
+                echo'<meta http-equiv="refresh" content="0;URL=login.php" />';
              }
+            }
+
+            else{
+                echo'ERROR...USER DOESNT EXIST';
+                echo "<script>alert('Usuario ingresado no existe');</script>";
+                echo'<meta http-equiv="refresh" content="0;URL=login.php" />';
+                die("Conexión no exitosa.");
+            }
+
+            //$result_query = mysqli_query($conn, "SELECT * FROM gamestore.users WHERE Username = '".$_POST["username"]."' AND Password = '".$_POST["password"]."';");
+
+            
 
 
 

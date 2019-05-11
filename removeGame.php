@@ -4,7 +4,7 @@
     <meta charset="utf-8">
 
     <html lang="sp" dir="ltr" style="font-family:Arial">
-        <title>User Login</title>
+        <title>Remove Game</title>
 
         <body>
           <?php
@@ -18,20 +18,52 @@
 
             else
               die("Conexión no exitosa.");
-
-              $gameID = $_POST['id'];
-
+/*
+              $Name = $_POST['name'];
+              echo$Name;
+*/
               //DELETE FROM `gamestore`.`games` WHERE (`id` = '00000005');
+              $id = $_GET["hashtag"];
+              echo$id;
+              $sqlDelete = "DELETE FROM GAMES WHERE id = '$id'";
+                
+              if (mysqli_query($enlace, $sqlDelete)) {
+                      //echo'Succes!';
+                      //echo "<script>alert('".$Name." eliminado de la tienda');</script>";
+                      echo'<meta http-equiv="refresh" content="0;URL=homeA.php" />';
+      
+              } 
+              else {
+                      echo "Error updating record: " . mysqli_error($conn);
+              }
 
-            $remove_query = mysqli_query($enlace, "DELETE FROM GAMES WHERE (`id` = '$gameID');");
+              /*
+              $getid = "SELECT id FROM GAMES WHERE Name = '$Name'";
+              $result = mysqli_query($enlace, $getid);
+              //$rs = mysqli_fetch_array($result);
+              if ($rs = mysqli_fetch_array($result)) {
+                echo'ID Encontrado';
 
-              echo mysqli_error($enlace);
+              } 
+                   
+              else {
+                       echo "<script>alert('El juego ingresado no existe');</script>";
+                      echo'<meta http-equiv="refresh" content="0;URL=formRG.php" />';
+              }
 
-             echo" ";
 
-              header("Location: homeA.php");
+                    
+
+  
+
+              //echo mysqli_error($enlace);
+
+             //echo" ";
+
+              //header("Location: homeA.php");
 
               //echo $hash;
+              */
             ?>
 
 

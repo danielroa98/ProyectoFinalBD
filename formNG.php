@@ -23,7 +23,15 @@ session_start();
       //$fondos = $_SESSION['Fondos'];
 
       echo'<a href="login.php">Log Out</a>';
-      echo'<a class="active" href="gameS.php">Game Settings</a>';
+
+      echo'<a>';
+        echo'<form action="/ProyectoFinal/homeAS.php" method="get">';
+        echo'<input type="text" name="gamename">';
+        echo'<input type="submit" value="Submit">';
+        echo'</form>';
+        echo'</a>';
+
+      echo'<a class="active" href="formNG.php">Add New Game</a>';
 
       echo'<b>'.$username.'</b>';
       /*if($fondos==null){
@@ -45,16 +53,13 @@ session_start();
 <h1>Register New Game</h1>
 <p>Please insert the following information to add the new game</p>
 
-    <form name = "newG_form" action = "newGame.php" method = "post">
-
-        <h4>Game id</h4>
-        <input type="text" name="id"></input>
+    <form name = "newG_form" action = "newGame.php" method = "post" enctype="multipart/form-data">
 
         <h4>Name of the game</h4>
         <input type="text" name="name"></input>
 
         <h4>Image location</h4>
-        <input type="text" name="image"></input>
+        <input type="file" name="fileToUpload" id="fileToUpload"></input>
 
         <h4>Description</h4>
         <input type="text" name="description"></input>
@@ -68,6 +73,7 @@ session_start();
         <input type ='submit' name="accept" value="Accept"></input>
 
     </form>
+
 
 </body>
 </html>

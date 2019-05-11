@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 
-  <link rel="stylesheet" href="styleFINAL.css">
+  <link rel="stylesheet" href="estilo.css">
   <meta charset="utf-8">
 
 <html lang="en" dir="ltr" style="font-family:Arial">
@@ -37,9 +37,9 @@
   </head>
   <body>
 
-    <h1 align="center" style="color:white">SHOPPING CART</h1>
+    <h1 align="center" class="pricetxt">SHOPPING CART</h1>
 
-    <table>
+    <table class="shoppingtable">
     <?php
       $conn = mysqli_connect("127.0.0.1", "adminVG", "adminVG.123", "GameStore");
       //Declaracion de conexiones
@@ -67,7 +67,7 @@
       //Imprimir carrito en la pagina
       echo'<tr>';
       echo'<td>'.$nombre['Name'].'</td>';
-      echo'<td>'.$precio['Price'].'</td>';
+      echo'<td>'.$precio['Price'].'<img src="Placeholder/Yepez.png" height="15" height="3" hspace="5" style="margin-left:5px"></td>';
       echo'<td><a href="deletecart.php?hashtag='.$finalid.'">Borrar Juego</a></td>';
       echo'</tr>';
     }//for
@@ -77,7 +77,7 @@
       $sqlTotal = "SELECT SUM(Price) AS TotalPrice FROM games INNER JOIN cart ON games.id = cart.Games_id WHERE USERS_Username = '$username'";
       $resultTotal = $conn->query($sqlTotal);
       $x = $resultTotal->fetch_assoc();
-      echo'<td>'.$x["TotalPrice"].'</td>';
+      echo'<td colspan="2" style="font-weight: bold">'.$x["TotalPrice"].'<img src="Placeholder/Yepez.png" height="25" height="5" hspace="5" style="margin-left:5px"></td>';
       $preciofinal = $x["TotalPrice"];
       echo'</tr>';
 
